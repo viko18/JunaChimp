@@ -1,21 +1,21 @@
 clear, clc
 %%% unsmoothed images for vbm model %%%
-dat_dir = '~\MATLAB\mwp1';
+dat_dir = '~\mwp1\';
 %%% location of dir for SPM %%%
-model_dir = '~\MATLAB\VBM_models\';
+model_dir = '~\VBM_models\';
 mkdir(model_dir);
 
 
 %%% smoothed images for vbm model %%%
 vbm_fils = (dir(fullfile(dat_dir,'s4*.nii')));
-%%% Age and TIV covariates txt file for model %%%
+%%% covariates txt files for model %%%
 age_tiv = ...
-    {'C:\Users\svickery\Documents\R\chimp_meta_data\total_VBM_age_tiv.txt'};
+    {'~\chimp_meta_data\total_VBM_age_tiv.txt'};
 sex_scanner = ...
-    {'C:\Users\svickery\Documents\R\chimp_meta_data\total_VBM_sex_scanner.txt'};
+    {'~\chimp_meta_data\total_VBM_sex_scanner.txt'};
 %%% GM mask %%%
 gm_mask = ...
-    {'C:\Users\svickery\Documents\MATLAB\2019_chimps\VBM_models\masks\GM_mask_04.nii,1'};
+    {'~\masks\GM_mask_04.nii,1'};
  
 
 for subj = 1:numel(vbm_fils)
