@@ -111,13 +111,13 @@ matlabbatch{mi}.spm.tools.cat.estwrite.extopts.admin.ignoreErrors          = 1;
 matlabbatch{mi}.spm.tools.cat.estwrite.extopts.admin.verb                  = 2;
 matlabbatch{mi}.spm.tools.cat.estwrite.extopts.admin.print                 = 2;
 % output options
-matlabbatch{mi}.spm.tools.cat.estwrite.output.surface                      = 0;    % surface reconstruction - not yet optimised for non-human primates (should we just add this so it's not used until we improve it?)
+matlabbatch{mi}.spm.tools.cat.estwrite.output.surface                      = 0;    % surface reconstruction - not yet optimised for non-human primates 
 matlabbatch{mi}.spm.tools.cat.estwrite.output.surf_measures                = 3;
 % volume atlas maps
 matlabbatch{mi}.spm.tools.cat.estwrite.output.ROImenu.atlases.chimpanzee_atlas_davi = 1;
 matlabbatch{mi}.spm.tools.cat.estwrite.output.ROImenu.atlases.ownatlas     = {''}; % you can add own atlas maps but they have to be in the same orientation as the other template files especially the final GS template
 % surface atlas maps
-matlabbatch{mi}.spm.tools.cat.estwrite.output.sROImenu.satlases.Desikan    = 0;    % the major structures are similar enough that surface-based registration works quite well over larger primates - true Bill showed this but I think we should leave this out for now and show it when we release the surface construction
+matlabbatch{mi}.spm.tools.cat.estwrite.output.sROImenu.satlases.Desikan    = 0;    % the major structures are similar enough that surface-based registration works quite well over larger primates 
 matlabbatch{mi}.spm.tools.cat.estwrite.output.sROImenu.satlases.Destrieux  = 0;
 matlabbatch{mi}.spm.tools.cat.estwrite.output.sROImenu.satlases.HCP        = 0;
 matlabbatch{mi}.spm.tools.cat.estwrite.output.sROImenu.satlases.Schaefer2018_100P_17N = 0;
