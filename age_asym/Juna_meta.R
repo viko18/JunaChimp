@@ -59,7 +59,7 @@ chimp.brain$perc.GM <- perc.GM
 
 
 # Total Age - GM linear model #
-age.lm <- lm(perc.GM ~ Age + Sex, data = chimp.brain)
+age.lm <- lm(perc.GM ~ Age + Sex + Scanner + Rear, data = chimp.brain)
 summary(age.lm)
 
 # subset into sexes and run linear model #
@@ -77,12 +77,14 @@ anova(age.lm)
 # plot graph with different colour for each sex #
 plot <- ggplot(chimp.brain, aes(x = Age, 
                              y = perc.GM, 
-                             shape = Sex, 
+                             shape = Rear, 
                              color = Sex)) + 
-  xlim(10,55) +
+  scale_shape_manual(values = c(15, 17, 8)) +
+  xlim(8,56) +
   ylim(25,55) +
   geom_point() +
-  geom_smooth(method = lm, se = F) +
+  geom_smooth(aes(group = 1), color = 'black', 
+              method = glm, formula = y ~ x) +
   labs(x = "Age (years)",
        y = "% GM of Total Intracranial Volume")
 
