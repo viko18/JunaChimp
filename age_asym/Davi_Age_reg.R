@@ -10,14 +10,14 @@ library("reshape2")
 
 # read in Davi ROI data # 
 # data is a csv file with cols - Name, Age, Sex, Scanner, TIV & davi region acronyms #
-chimp_ROIs <- read.csv("Davi_label_178_mean_masked01.csv")
+chimp_ROIs <- read.csv("Davi_label_194_mean_masked01.csv")
 
 # melts data into tribble then groups each roi #
 # to conduct age linear regression model #
 lm_Davi_age <- select(chimp_ROIs, -Name) %>%
   melt(., id.vars = 1:4, na.rm = TRUE) %>%
   group_by(variable) %>%
-  do(tidy(lm(value ~ Age + TIV + Sex + Scanner, data=.)))
+  do(tidy(lm(value ~ Age + TIV + Sex + Scanner + Rear, data=.)))
 
 ###############################################################################################
 # filter out age p.values and conduct #
