@@ -17,7 +17,7 @@ rearing = ...
     {'~\chimp_meta_data\total_VBM_rearing.txt'};
 %%% GM mask %%%
 gm_mask = ...
-    {'~\masks\GM_mask_04.nii,1'};
+    {'~\masks\chimp_shoot_mask_0.4_GM.nii,1'};
  
 
 for subj = 1:numel(vbm_fils)
