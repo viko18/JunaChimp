@@ -63,6 +63,8 @@ age.lm <- lm(perc.GM ~ Age + Sex + Scanner + Rear, data = chimp.brain)
 age.lm1 <- lm(perc.GM ~ Age * Sex, data = chimp.brain)
 age.lm2 <- lm(perc.GM ~ Age + Sex, data = chimp.brain)
 summary(age.lm)
+# test for sex effect of aging effect on GM #
+anova(age.lm1, age.lm2)
 
 # subset into sexes and run linear model #
 male.age <- filter(chimp.brain, Sex == "Male")
@@ -73,8 +75,14 @@ summary(male.lm)
 female.lm <- lm(perc.GM ~ Age, data = female.age)
 summary(female.lm)
 
-# test for sex effect of aging effect on GM #
-anova(age.lm1, age.lm2)
+# subset into scanner and run linear model #
+age.3T <- filter(chimp.brain, Scanner == "3T")
+age.15T <- filter(chimp.brain, Scanner == "1.5T")
+
+lm.3T <- lm(perc.GM ~ Age, data = age.3T)
+lm.15T <- lm(perc.GM ~ Age, data = age.15T)
+summary(lm.3T)
+summary(lm.15T)
 
 # plot graph with different colour for each sex #
 plot <- ggplot(chimp.brain, aes(x = Age, 
