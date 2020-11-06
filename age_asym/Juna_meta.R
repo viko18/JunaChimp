@@ -2,15 +2,16 @@
 
 
 library("readr")
+library("plyr")
 library("dplyr")
 library("ggplot2")
-library("plyr")
+
 
 # Meta data for whole chimpanzee sample #
 chimp.meta <- read.csv("Chimp_meta_new_223.csv")
 
 # Meta data and whole brain volumes for #
-# GM, WM, & CSF for QC passed chimps #
+# GM, WM, & CSF for QC passed chimps n = 194#
 chimp.brain <- read.csv("Chimp_brain_meta.csv")
 
 ##############################################################################################
@@ -22,7 +23,7 @@ total.plot <- ggplot(data = chimp.meta,
                      aes(x = Scanner, y = Age)) +
   geom_violin(alpha = 0.25, aes(fill = Scanner), size = 1,
               trim = FALSE) +
-  scale_fill_brewer(palette = "Pastel1") +
+  scale_fill_manual(values = c("#D95F02", "7570B3")) +
   geom_jitter(aes(shape = Sex, colour = Sex),
               position = position_jitter(0.2)) + 
   theme_classic()
@@ -35,7 +36,6 @@ total.plot
 # distribution of sex and age #
 
 # jitter of points may appear differently as #
-# this is random or should I use set.seed?? #
 QC.plot <- ggplot(data = chimp.brain, 
                             aes(x = Sex, y = Age)) +
   geom_violin(alpha = 0.3, aes(fill = Sex), size = 0.5,
