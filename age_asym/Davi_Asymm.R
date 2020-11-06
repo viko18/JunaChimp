@@ -11,7 +11,7 @@ library("stringr")
 
 # read in Davi ROI data # 
 # data is a csv file with cols - Name, Age, Sex, Scanner, TIV & davi region acronyms #
-chimp_ROIs <- read.csv("Davi_label_178_mean_masked01.csv")
+chimp_ROIs <- read.csv("Davi_label_194_mean_masked01.csv")
 ROIs <- select(chimp_ROIs, L.aSFG:R.CerII)
 
 # Use AI formula on all odd or left hemi ROI's #
@@ -42,11 +42,11 @@ colnames(AI.df) <- AI.labels
 chimp_AI_new <- cbind(select(chimp_ROIs, Name:TIV), AI.df)
 
 # write AI csv file #
-write.csv(chimp_AI_new, "Davi130_Asym_178_mean.csv", row.names = F)
+write.csv(chimp_AI_new, "Davi130_Asym_194_mean.csv", row.names = F)
 
 ###############################################################################################
 # whole brain one-sample t-test #
-AI.ttest.br <- select(chimp_AI_new, -Name, -Sex,-Scanner,-Age) %>%
+AI.ttest.br <- select(chimp_AI_new, -Name, -Sex,-Scanner,-Age, -Rear) %>%
   melt(., id.vars = 1) %>%
   group_by(variable) %>% 
   do(tidy(t.test(.$value, mu = 0, 
