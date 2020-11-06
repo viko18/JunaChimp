@@ -1,8 +1,7 @@
 clc, clear
 %%%-------------- 2019 Sam Vickery & Felix Hoffstaedter ----------------%%%
 %%% extract average volume from each Davi130 label masked at GM>0.1 using 
-%%% GM mask created from GM shooting template 4 from modulted GM maps
-%%% and saving the matrix for post hoc analyses using R 
+%%% of shootong temp and saving the matrix for post hoc analyses using R 
 
 % Dir with Davi130 %
 Davi_dir = '~\Juna.Chimp_1mm\';
@@ -12,6 +11,9 @@ mwp1_dir = '~\mwp1\';
 mwp1_fils = (dir(fullfile(mwp1_dir,'mwp1*.nii')));
 % Davi130 parcellation masked by GM>0.1 %
 parc = fullfile(Davi_dir, 'Davi130_1mm_GM01.nii');
+
+% fill empty matrix with values %
+DaViVol = zeros(size(mwp1_fils,1),130);
 
 for subj = 1:numel(mwp1_fils)
     
@@ -31,8 +33,6 @@ for subj = 1:numel(mwp1_fils)
     
 end
 
-% clean up %
-%clear DaViVol_left DaViVol_right left_ind right_ind
 % save mat file with avg roi vols and as csv for R  for post hoc stats%
 cd(Davi_dir);
 save Davi_vol 
