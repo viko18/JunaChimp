@@ -43,6 +43,7 @@ QC.plot <- ggplot(data = chimp.brain,
   scale_fill_brewer(palette = "Set1") +
   geom_jitter(aes(shape = Sex), 
               position = position_jitter(0.1)) + 
+  labs(y = "Age (years)") +
   theme_classic()
 
 # View plot #
