@@ -13,6 +13,8 @@ age_tiv = ...
     {'~\chimp_meta_data\total_VBM_age_tiv.txt'};
 sex_scanner = ...
     {'~\chimp_meta_data\total_VBM_sex_scanner.txt'};
+rearing = ...
+    {'~\chimp_meta_data\total_VBM_rearing.txt'};
 %%% GM mask %%%
 gm_mask = ...
     {'~\masks\GM_mask_04.nii,1'};
@@ -31,6 +33,9 @@ matlabbatch{1}.spm.stats.factorial_design.multi_cov(1).files = age_tiv;
 matlabbatch{1}.spm.stats.factorial_design.multi_cov(1).iCFI = 1;
 matlabbatch{1}.spm.stats.factorial_design.multi_cov(1).iCC = 5;
 matlabbatch{1}.spm.stats.factorial_design.multi_cov(2).files = sex_scanner;
+matlabbatch{1}.spm.stats.factorial_design.multi_cov(2).iCFI = 1;
+matlabbatch{1}.spm.stats.factorial_design.multi_cov(2).iCC = 1;
+matlabbatch{1}.spm.stats.factorial_design.multi_cov(2).files = rearing;
 matlabbatch{1}.spm.stats.factorial_design.multi_cov(2).iCFI = 1;
 matlabbatch{1}.spm.stats.factorial_design.multi_cov(2).iCC = 1;
 matlabbatch{1}.spm.stats.factorial_design.masking.tm.tm_none = 1;
